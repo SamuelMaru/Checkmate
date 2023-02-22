@@ -17,6 +17,13 @@ def find_rooks(board):
         rooks.append([i , j])
   return rooks
 
+def find_bishops(board):
+    bishops = []
+    for i in range(len(board)):
+        for j in range(len(board[i])):
+            if (board[i][j] == "B"):
+                bishops.append([i, j])
+    return bishops
 
 def find_king(board):
     for i in range(len(board)):
@@ -25,7 +32,7 @@ def find_king(board):
                 return [i,j]
     return None
 
-def attacked_squares(board):
+def rook_attacks(board):
     squares = []
     rooks = find_rooks(board)
     for rook in rooks:
@@ -37,7 +44,20 @@ def attacked_squares(board):
                     squares.append([i,j])
     return squares
 
+def bishop_attacks(board):
+    #IN PROGRESS
+    squares = []
+    bishops = find_bishops(board)
+    for bishop in bishops:
+        x_position = bishop[0]
+        y_position = bishop[1]
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                print(i-j)
+                if abs(x_position-i) == abs(y_position-j) and (i,j)!=(x_position,y_position):
+                    squares.append([i,j])
 
+    return squares
 
 def king_moves(gameboard,attacked):
     king_pos = find_king(gameboard)
@@ -51,7 +71,13 @@ def king_moves(gameboard,attacked):
     return False
 
 
-def checkmate(board):
-    attacked_squaress = attacked_squares(board)
+"""def checkmate(board):
+    attacked_squaress = rook_attacks(board)
     possible_moves = king_moves(board, attacked_squaress)
-    return not possible_moves
+    return not possible_moves"""
+gameBoard=      [['-', '-', 'K', '-'],
+                ['-', '-', '-', '-'],
+                ['-', '-', '-', '-'],
+                ['B', '-', '-', '-']]
+attacks = bishop_attacks(gameBoard)
+print(attacks)
