@@ -14,7 +14,7 @@ def find_rooks(board):
   for i in range(len(board)):
     for j in range(len(board[i])):
       if (board[i][j] == "R"):
-        rooks.add([i , j])
+        rooks.add((i , j))
   return rooks
 
 def find_bishops(board):
