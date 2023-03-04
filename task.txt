@@ -1,0 +1,15 @@
+Write a function for determining a king 
+is in checkmate.
+It should take a 2D 4x4 array as input to 
+represent the chess game board as such:
+[[‘R’,’-’,’K’,’-’],
+ [‘R’,’-’,’-’,’-’],
+ [‘-’,’-’,’-’,’-’],
+ [‘-’,’-’,’-’,’-’]]
+Where K is the king in question,
+R are the attacking rooks
+B are the attacking bishops
+and - is a blank square.
+The funtion should return true if the king
+is in checkmate.
+Otherwise return false.
